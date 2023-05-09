@@ -1,11 +1,11 @@
 import java.util.Arrays;
 
-class FirstMissingPositive41{
+class firstMissingPositive41 {
     public static void main(String[] args) {
-        int[] arr = {-1,-2};
-        firstMissingPositive(arr);
+        int [] arr = {-1,0,2,3,1,5};
+        System.out.println(firstMissingPositive(arr));
     }
-    public  static int firstMissingPositive(int[] arr) {
+    public static int firstMissingPositive(int[] arr) {
         int i = 0; 
         while(i < arr.length){
             int current = arr[i] - 1;
@@ -17,7 +17,7 @@ class FirstMissingPositive41{
             
         }
         for(int idx = 0 ; idx < arr.length ; idx++){
-            if(arr[idx] != idx - 1){
+            if(arr[idx] != idx + 1){//because it is zero indexed
                 return idx+1;
             }
         }
