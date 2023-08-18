@@ -1,21 +1,38 @@
 import java.util.*;
 public class BasicString{
   public static void main(String[] args) {
-    String str = "bbaababea";
-    removeA(str , "" , 0);
-
+    String str = "Hardik";
+    // System.out.println(removeA(str));
+    aRemove("", str);
   }
-  public static void removeA(String str , StringBuffer ans , int count){
-    if(count == str.length()){
-      System.out.println(ans);
+
+  public static void aRemove(String p , String up){
+    if(up.isEmpty()){
+      System.out.println("Approach : This is using filling empty with answer, and emptying the original approach ");
+      System.out.println(p);
       return;
     }
-    if(str.charAt(count) == 'a'){
-      removeA(str, ans, count+1);
-    }else{
-      ans.append(str.charAt(count));
-      removeA(str, ans, count+1);
-    }
+    char ch = up.charAt(0);
 
+    if(ch == 'a'){
+      aRemove(p, up.substring(1));
+    } else {
+      aRemove(p + ch, up.substring(1));
+    }
   }
+
+  public static String removeA(String str){
+    if(str.isEmpty()){
+      return "";
+    }
+    char ch = str.charAt(0);
+
+    if(ch == 'a'){
+      return removeA(str.substring(1));
+    }
+    else{
+      return ch + removeA(str.substring(1));
+    }
+  }
+  
 }
